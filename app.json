@@ -1,48 +1,74 @@
 {
   "expo": {
-    "name": "Calcy",
-    "slug": "Calcy",
+    "name": "Guardian Safety",
+    "slug": "guardian-safety",
     "version": "1.0.0",
+    "sdkVersion": "50.0.0",
+    "assetBundlePatterns": ["**/*"],
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "calcy",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "scheme": "guardian",
+    "backgroundColor": "#f5f3ff",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f5f3ff"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTabletMode": false,
+      "bundleIdentifier": "com.guardian.safety",
+      "jsEngine": "hermes",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Guardian needs your location to keep you safe",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Guardian tracks your location even when closed for emergencies",
+        "NSMicrophoneUsageDescription": "Guardian records audio to detect emergency keywords",
+        "NSPhotoLibraryUsageDescription": "Guardian saves security recordings to your library",
+        "NSPhotoLibraryAddUsageDescription": "Guardian needs to save emergency recordings",
+        "UIBackgroundModes": ["location", "audio"]
+      }
     },
     "android": {
+      "jsEngine": "hermes",
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.SEND_SMS",
+        "android.permission.READ_CONTACTS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.INTERNET",
+        "android.permission.VIBRATE",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "package": "com.guardian.safety",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#f5f3ff"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "versionCode": 1
     },
     "plugins": [
-      "expo-router",
       [
-        "expo-splash-screen",
+        "expo-location",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
-          "dark": {
-            "backgroundColor": "#000000"
-          }
+          "locationAlwaysAndWhenInUsePermission": "Allow Guardian to access your location for safety",
+          "isIosBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#8b5cf6"
         }
       ]
     ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
     }
   }
 }
