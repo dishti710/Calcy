@@ -74,7 +74,7 @@ export default function CalculatorScreen() {
         }
       } catch (error) {
         console.error('Error verifying PIN:', error);
-      }
+    }
     }
 
     // Normal calculator operation

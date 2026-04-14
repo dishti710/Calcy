@@ -1,10 +1,12 @@
 {
   "expo": {
-    "name": "Guardian Safety",
-    "slug": "guardian-safety",
+    "name": "Calcy",
+    "slug": "calcy",
     "version": "1.0.0",
     "sdkVersion": "50.0.0",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "guardian",
@@ -17,18 +19,19 @@
     "ios": {
       "supportsTabletMode": false,
       "bundleIdentifier": "com.guardian.safety",
-      "jsEngine": "hermes",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Guardian needs your location to keep you safe",
         "NSLocationAlwaysAndWhenInUseUsageDescription": "Guardian tracks your location even when closed for emergencies",
         "NSMicrophoneUsageDescription": "Guardian records audio to detect emergency keywords",
         "NSPhotoLibraryUsageDescription": "Guardian saves security recordings to your library",
         "NSPhotoLibraryAddUsageDescription": "Guardian needs to save emergency recordings",
-        "UIBackgroundModes": ["location", "audio"]
+        "UIBackgroundModes": [
+          "location",
+          "audio"
+        ]
       }
     },
     "android": {
-      "jsEngine": "hermes",
       "permissions": [
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION",
@@ -63,7 +66,8 @@
           "icon": "./assets/icon.png",
           "color": "#8b5cf6"
         }
-      ]
+      ],
+      "expo-router"
     ],
     "extra": {
       "eas": {

@@ -6,16 +6,16 @@ import { useRouter } from 'expo-router';
 import { ref, set } from 'firebase/database';
 import { useState } from 'react';
 import {
-    Alert,
-    KeyboardAvoidingView,
-    Platform,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 export default function RegisterScreen() {
@@ -92,7 +92,7 @@ export default function RegisterScreen() {
               <Text style={styles.headerIcon}>🛡️</Text>
             </View>
             <View>
-              <Text style={styles.headerTitle}>Guardian Setup</Text>
+              <Text style={styles.headerTitle}>Calcy</Text>
               <Text style={styles.headerSubtitle}>
                 One-time registration · Takes 30 seconds
               </Text>

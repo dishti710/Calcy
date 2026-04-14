@@ -3,6 +3,7 @@ import { startBackgroundLocation } from '@/services/location';
 import { getUserData } from '@/services/storage';
 import { Tabs, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { Text } from 'react-native';
 
 export default function AppLayout() {
   const router = useRouter();
@@ -21,7 +22,10 @@ export default function AppLayout() {
       }
 
       // Start background location tracking
-      await startBackgroundLocation();
+      await startBackgroundLocation().catch(err => 
+        console.warn('Location start failed:', err)
+      );
+      
       setIsInitialized(true);
     } catch (error) {
       console.error('Auth check error:', error);
@@ -59,7 +63,7 @@ export default function AppLayout() {
         options={{
           title: 'Home',
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20 }}>🏠</Text>,
+          tabBarIcon: () => <Text style={{ fontSize: 20 }}>🏠</Text>,
         }}
       />
       <Tabs.Screen
@@ -67,7 +71,7 @@ export default function AppLayout() {
         options={{
           title: 'Location',
           tabBarLabel: 'Location',
-          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20 }}>📍</Text>,
+          tabBarIcon: () => <Text style={{ fontSize: 20 }}>📍</Text>,
         }}
       />
       <Tabs.Screen
@@ -75,7 +79,7 @@ export default function AppLayout() {
         options={{
           title: 'Contacts',
           tabBarLabel: 'Contacts',
-          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20 }}>👥</Text>,
+          tabBarIcon: () => <Text style={{ fontSize: 20 }}>👥</Text>,
         }}
       />
       <Tabs.Screen
@@ -83,17 +87,15 @@ export default function AppLayout() {
         options={{
           title: 'Settings',
           tabBarLabel: 'Settings',
-          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20 }}>⚙️</Text>,
+          tabBarIcon: () => <Text style={{ fontSize: 20 }}>⚙️</Text>,
         }}
       />
       <Tabs.Screen
         name="sos"
         options={{
-          href: null, // Hide from tab bar - accessed via button
+          href: null,
         }}
       />
     </Tabs>
   );
 }
-
-import { Text } from 'react-native';
